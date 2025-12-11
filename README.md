@@ -1,4 +1,4 @@
-# IBOK Bank Mockup - واجهات بنك الخرطوم
+# IBOK Bank Mockup واجهات بنك الخرطم
 
 ## نظرة عامة
 
